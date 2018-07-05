@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.cloudifysource.examples</groupId>
   <artifactId>java-hello-world-webapp</artifactId>
@@ -18,4 +17,18 @@
   <build>
     <finalName>java-hello-world</finalName>
   </build>
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <!-- Optional URL to server. Default value is http://localhost:9000 -->
+        <sonar.host.url>
+          ${sonar.host}
+        </sonar.host.url>
+      </properties>
+    </profile>
+  </profiles>
 </project>
